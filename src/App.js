@@ -1,11 +1,11 @@
 import React, { Component } from 'react'; 
 import './App.css';
 import Card from './components/card'
-import Comments from './components/comments';
+// import Comments from './components/comments';
 import {Button} from 'react-bootstrap';
 // import Header from './components/layout/Header'
 import Navbar from './components/layout/Navbar';
-import Home from './components/Home';
+// import Home from './components/Home';
 import Rating from './components/Rating';
 import Footer from './components/Footer'
 
@@ -53,5 +53,6 @@ render() {
   }
 }
 export default App;
+
 
 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Consumer } from '../context';
 
  class Contact extends Component {
   state = {
@@ -29,7 +30,7 @@ import React, { Component } from 'react'
     const{ contact } = this.props;
     const{ showContactInfo } =this.state;
       return (
-        
+        <Consumer>
               {value => {
                 const { dispatch } = value;
                 return (
@@ -62,6 +63,7 @@ import React, { Component } from 'react'
               </div> 
             );
         }}
+      </Consumer>  
     
     )
   }

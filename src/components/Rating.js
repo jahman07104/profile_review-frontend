@@ -6,13 +6,13 @@ class Rating extends Component {
 
   constructor(props){
     super(props);
-    this.state = {rating: this.props.rating};             
+    this.state = {rating: 0};
   }
 
 
-  handleClick(ratingValue){    
+  handleClick(ratingValue){
     this.setState({rating:ratingValue});
-    
+    // backend api call to update the rting forthis person
   } 
 
 
