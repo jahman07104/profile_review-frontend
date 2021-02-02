@@ -1,5 +1,14 @@
 const Home = () => {
 
+  
+  const Home = () => {
+    return (
+      <div>
+        <h1>Home!</h1>
+      </div>
+    );
+  };
+
   const handleClick = (e) => {
     console.log("hello patty", e)
   }

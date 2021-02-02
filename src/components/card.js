@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Rating from '../components/Rating';
 
 const Card = (props) => {
   const avatar = `https://i.pravatar.cc/150?img=${props.avatarId}`;
@@ -14,8 +15,8 @@ const Card = (props) => {
         <div className="card">
           <img className="card-img-top" src={avatar} alt="Card image cap" />
             <div className="card-body">
-              <h5 className="card-title">{props.name}</h5>
-              <i onClick={() => setShowCardInfo(!showCardInfo)}                    
+            <h5 className="card-title">{props.name}</h5>
+              <i onClick={() => setShowCardInfo(!showCardInfo)}  
                 className="fas fa-sort-down" 
                 style={{cursor: 'pointer'}}
               />
@@ -23,8 +24,13 @@ const Card = (props) => {
                 showCardInfo ? (
                   <div>
                     <p className="card-text">give your rating for this profile.</p>
+                    <Rating  />
                     <a href="#" class="btn btn-primary">{props.email}{props.phone}</a>
-                    <a href="#" class="btn btn-primary">Display rating from state here</a>
+                    {/* <a href="#" class="btn btn-primary">Display rating from state here</a> */}
+                   
+                  
+                    
+
                   </div>
                 )
                 : null
