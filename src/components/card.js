@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Rating from '../components/Rating';
 
 const Card = (props) => {
-  const avatar = `https://i.pravatar.cc/150?img=${props.avatarId}`;
+  // const avatar = `https://i.pravatar.cc/150?img=${props.avatarId}`;
 
   const [showCardInfo, setShowCardInfo] = useState(false);
 
@@ -13,7 +13,7 @@ const Card = (props) => {
     <React.Fragment>
       <div className="col-md-4">
         <div className="card">
-          <img className="card-img-top" src={avatar} alt="Card image cap" />
+          <img className="card-img-top" src={props.avatar} alt="Card image cap" />
             <div className="card-body">
             <h5 className="card-title">{props.name}</h5>
               <i onClick={() => setShowCardInfo(!showCardInfo)}  
@@ -26,10 +26,7 @@ const Card = (props) => {
                     <p className="card-text">give your rating for this profile.</p>
                     <Rating  />
                     <a href="#" class="btn btn-primary">{props.email}{props.phone}</a>
-                    {/* <a href="#" class="btn btn-primary">Display rating from state here</a> */}
-                   
-                  
-                    
+                    {/* <a href="#" class="btn btn-primary">Display rating from state here</a> */}                                                       
 
                   </div>
                 )

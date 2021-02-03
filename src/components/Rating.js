@@ -12,7 +12,7 @@ class Rating extends Component {
 
   handleClick(ratingValue){
     this.setState({rating:ratingValue});
-    // backend api call to update the rting forthis person
+    // backend api call to update the rating forthis person
   } 
 
 
