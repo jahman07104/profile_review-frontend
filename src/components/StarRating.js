@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { render } from "react-dom";
-import '../Containers/App.css';
+// import './App.css';
 
 const Star = ({ selected = false, onClick = f => f }) => (
   <div className={selected ? "star selected" : "star"} onClick={onClick} />
@@ -14,7 +14,7 @@ const StarRating = ({ totalStars, currentRating, profileId }) => {
     
     const data = { star: selectedRating, profile_id: profileId }
 
-    fetch('http://localhost:4000/ratings';, {
+    fetch('http://localhost:4000/ratings', {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'

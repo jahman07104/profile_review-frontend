@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Rating from '../components/Rating';
+import StarRating from './StarRating';
+// import './App.css'
 
 const Card = (props) => {
   // const avatar = `https://i.pravatar.cc/150?img=${props.avatarId}`;
@@ -24,7 +26,7 @@ const Card = (props) => {
                 showCardInfo ? (
                   <div>
                     <p className="card-text">give your rating for this profile.</p>
-                    <Rating  />
+                    <StarRating  profileId={props.id} totalStars={5} currentRating={props.rating} />
                     <a href="#" class="btn btn-primary">{props.email}{props.phone}</a>
                     {/* <a href="#" class="btn btn-primary">Display rating from state here</a> */}                                                       
 

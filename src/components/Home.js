@@ -6,6 +6,7 @@ import Card from '../components/card'
 // import {Button} from 'react-bootstrap';
 // import Header from './components/layout/Header'
 import Navbar from './Navbar';
+import StarRating from './StarRating'
 // import Rating from '../components/Rating';
 import Footer from '../components/Footer';
 
