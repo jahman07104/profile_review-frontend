@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { render } from "react-dom";
-// import './App.css';
+// import { render } from "react-dom";
+import '../App.css'
+
 
 const Star = ({ selected = false, onClick = f => f }) => (
   <div className={selected ? "star selected" : "star"} onClick={onClick} />

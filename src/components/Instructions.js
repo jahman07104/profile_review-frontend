@@ -1,6 +1,7 @@
 import React,{ Component }from 'react'
 import Navbar from './Navbar';
 import Footer from './Footer'
+import '../App.css';
 
 
 class Instructions extends Component {
@@ -19,21 +20,18 @@ class Instructions extends Component {
   onChange = e => this.setState({[e.target.name]: 
     e.target.value });
 
+   
 
   render() {
-    
+
     const { name, email, phone } = this.state;
+    
     return (
-      <>
+    
       <div className="container">
-            <Navbar title="profile viewer" icon="fab fa-forumbee"/>    
-            <h3>This is the Profile submissions page.</h3>
-            <p> Fill in below to submit a profile and upload your photo...</p>
-      </div>
-      <div className="card mb-3">
-        <div className="card-header">Add 
-        Profile</div>
-          <div className="card-body">
+      <Navbar title="profile viewer" icon="fab fa-forumbee"/>    
+        <div className="row">
+        <div className="card-body">
             <form onSubmit={this.onSubmit}>
               <div className="form-group">
                 <label htmlFor="name">Name</label>
@@ -74,11 +72,17 @@ class Instructions extends Component {
                 <input type="submit" value="Add Profile" 
                 className="btn btn-light btn-block"/>
             </form>
-          </div>      
-      </div>
-      <div style={{ borderTop: "2px solid #fff ", marginLeft: 2, marginRight: 2 }}></div>
-      < Footer year={new Date().getFullYear()}/>
-      </>
+          </div>  
+        </div>  
+    <br></br>        
+        <div style={{ borderTop: "2px solid #fff ", marginLeft: 4, marginRight: 4 }}></div>
+    
+    < Footer year={new Date().getFullYear()}/> 
+   
+    </div>
+
+
+  
     );
 
    

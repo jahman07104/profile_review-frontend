@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Rating from '../components/Rating';
 import StarRating from './StarRating';
-// import './App.css'
+import '../App.css'
 
 const Card = (props) => {
   // const avatar = `https://i.pravatar.cc/150?img=${props.avatarId}`;
