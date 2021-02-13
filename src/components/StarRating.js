@@ -13,18 +13,18 @@ const StarRating = ({ totalStars, currentRating, profileId }) => {
   function updateProfileRating(selectedRating) {
     console.log('calling updateProfileRating', selectedRating);
     
-    const data = { star: selectedRating, profile_id: profileId }
+    const data = { rating: selectedRating, profile_id: profileId }
 
-    fetch('http://localhost:4000/ratings', {
-      method: "POST",
+    fetch(`http://localhost:4000/profiles/${profileId}`, {
+      method: "PUT",
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(data)
     })
       .then(response => response.json())
-      .then(rating => {
-        selectStar(rating.star)
+      .then(profile => {
+        selectStar(profile.rating)
       })
   }
 
