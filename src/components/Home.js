@@ -16,8 +16,18 @@ const Home = ( {profiles, setProfiles} ) => {
       })
   }, []);
 
+  const updateProfiles = (deletedProfileId) => {
+    console.log(`INSIDE updateProfiles!!! deletedProfileId: ${deletedProfileId}`);
+    const updatedProfiles = profiles.filter((profile) => {
+      if (profile.id !== deletedProfileId) {
+        return profile;      
+      }
+    })
+    setProfiles(updatedProfiles);
+  }
+
   const profileItems = profiles.map((profile) => {
-    return <Card id={profile.id} name={profile.name} email={profile.email} city={profile.city} phone={profile.phone} avatar={profile.image} rating={profile.rating} />
+    return <Card updateProfiles={updateProfiles} id={profile.id} name={profile.name} email={profile.email} city={profile.city} phone={profile.phone} avatar={profile.image} rating={profile.rating} />
   })
 
   return (

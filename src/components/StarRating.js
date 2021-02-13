@@ -7,7 +7,7 @@ const Star = ({ selected = false, onClick = f => f }) => (
   <div className={selected ? "star selected" : "star"} onClick={onClick} />
 );
 
-const StarRating = ({ totalStars, currentRating, profileId }) => {
+const StarRating = ({ totalStars, currentRating, setCurrentRating, profileId }) => {
   const [starsSelected, selectStar] = useState(currentRating);
   
   function updateProfileRating(selectedRating) {
@@ -24,7 +24,8 @@ const StarRating = ({ totalStars, currentRating, profileId }) => {
     })
       .then(response => response.json())
       .then(profile => {
-        selectStar(profile.rating)
+        selectStar(profile.rating);
+        setCurrentRating(profile.rating);
       })
   }
 

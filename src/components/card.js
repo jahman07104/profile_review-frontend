@@ -7,9 +7,25 @@ const Card = (props) => {
   // const avatar = `https://i.pravatar.cc/150?img=${props.avatarId}`;
 
   const [showCardInfo, setShowCardInfo] = useState(false);
+  const [currentRating, setCurrentRating] = useState(props.rating);
 
   // useEffect hook to get the person rating from the backedn api, set teh rsting value in state
   //
+
+  const deleteProfile = () => {
+    console.log('Deleting Profile!', props.id);
+    fetch(`http://localhost:4000/profiles/${props.id}`, {
+      method: "DELETE",
+      headers: {
+        'Content-Type': 'application/json'
+      }      
+    })
+      .then(response => response.json())
+      .then(profile => {                    
+          console.log(`Deleted profile id ${profile.id} successfully!`);
+          props.updateProfiles(profile.id);
+      })    
+  }
 
   return (
     <React.Fragment>
@@ -27,9 +43,18 @@ const Card = (props) => {
                 showCardInfo ? (
                   <div>
                     <p className="card-text">give your rating for this profile.</p>
-                    <StarRating  profileId={props.id} totalStars={5} currentRating={props.rating} />
+                    <StarRating 
+                      profileId={props.id}
+                      totalStars={5}
+                      currentRating={currentRating}
+                      setCurrentRating={setCurrentRating}
+                    />
                     <a href="#" class="btn btn-primary">{props.email}{props.phone}</a>
-                    {/* <a href="#" class="btn btn-primary">Display rating from state here</a> */}                                                       
+                    <i onClick={deleteProfile}
+                      className="fas fa-trash" 
+                      style={{cursor: 'pointer', float:
+                      'right', color: 'red' }}
+                    />                                             
 
                   </div>
                 )
