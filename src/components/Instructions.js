@@ -1,7 +1,7 @@
 import React,{ Component }from 'react'
 import Navbar from './Navbar';
 import Footer from './Footer'
-import '../App.css';
+import '../css/App.css';
 
 
 class Instructions extends Component {

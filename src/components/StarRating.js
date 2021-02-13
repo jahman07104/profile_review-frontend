@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 // import { render } from "react-dom";
-import '../App.css'
+import '../css/App.css';
 
 
 const Star = ({ selected = false, onClick = f => f }) => (

@@ -3,13 +3,14 @@ import Card from '../components/card'
 import Navbar from './Navbar';
 import StarRating from './StarRating';
 import Footer from '../components/Footer';
+import PageNotFound from './PageNotFound'
 import { connect } from "react-redux";
 import setProfiles from '../actionCreator/setProfiles';
 
 const Home = ( {profiles, setProfiles} ) => {
   useEffect(() => {
     fetch("http://localhost:4000/profiles")
-      .then((r) => r.json())
+      .then((res) => res.json())
       .then(profiles => {
         setProfiles(profiles)
       })
@@ -28,7 +29,7 @@ const Home = ( {profiles, setProfiles} ) => {
       <br></br>        
       <div style={{ borderTop: "2px solid #fff ", marginLeft: 4, marginRight: 4 }}>    
       </div>
-      
+     
       <Footer year={new Date().getFullYear()} />
   </div>
   );  
@@ -41,7 +42,7 @@ const mapStateToProps = ({ profiles }) => ({
 
 // setting data to redux store
 const mapDispatchToProps = dispatch => ({
-  setProfiles: profiles => dispatch(setProfiles(profiles)) // { type: "SET_PROFILES", payload: [{ name: 'Mike', email: 'test'}]
+  setProfiles: profiles => dispatch(setProfiles(profiles)) // { type: "SET_PROFILES", payload: [{ name: 'Patrickprofiles ', email: 'test'}]
 });
 
 export default connect(

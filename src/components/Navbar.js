@@ -9,8 +9,11 @@ class Navbar extends Component {
     icon:'fab fa-forumbee'
   };
 
+
+
   render () {
-    return (  
+
+    return ( 
       <nav className="navbar navbar-expand-sm navbar-dark bg-primary mb-3 py-0">
           <h1> 
             <i className="fab fa-forumbee" /> {this.props.title}
@@ -21,12 +24,15 @@ class Navbar extends Component {
               <li className="nav-item">        
                 <Link className="nav-link" to="/">Home </Link>
               </li>
+              {" | "}
               <li className="nav-item">              
                 <Link className="nav-link" to="/Instructions">Instructions</Link>
-              </li>              
+              </li>  
+              {" | "}            
               <li className="nav-item">              
                 <Link className="nav-link" to="/about">About us </Link>
               </li>
+             
             </ul>
           </div>
         </div>

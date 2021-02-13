@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Rating from '../components/Rating';
 import StarRating from './StarRating';
-import '../App.css'
+import '../css/App.css'
 
 const Card = (props) => {
   // const avatar = `https://i.pravatar.cc/150?img=${props.avatarId}`;
@@ -20,9 +20,10 @@ const Card = (props) => {
             <h5 className="card-title">{props.name}</h5>
               <i onClick={() => setShowCardInfo(!showCardInfo)}  
                 className="fas fa-sort-down" 
-                style={{cursor: 'pointer'}}
-              />
-              {
+                style={{cursor: 'pointer', float:
+                'left', color: 'red' }}
+                />
+          {
                 showCardInfo ? (
                   <div>
                     <p className="card-text">give your rating for this profile.</p>

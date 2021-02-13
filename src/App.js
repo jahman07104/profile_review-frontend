@@ -1,11 +1,12 @@
 import React  from 'react';
-import './App.css';
+import './css/App.css';
 import {BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import Home from './components/Home';
 import About from './components/About';
 import Instructions from './components/Instructions';
 import store from "./store";
 import { Provider } from "react-redux";
+import PageNotFound from './components/PageNotFound';
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
           <Route exact path="/" component={Home} />
           <Route exact path="/about" component={About} />
           <Route exact path="/instructions" component={Instructions} />
+          <Route component={PageNotFound} />
         </Switch>
       </Router>
     </Provider>
