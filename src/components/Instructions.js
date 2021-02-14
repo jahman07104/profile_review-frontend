@@ -12,9 +12,14 @@ function Instructions() {
       <Navbar title="profile viewer" icon="fab fa-forumbee"/>               
         <div style={{ borderTop: "2px solid #fff ", marginLeft: 4, marginRight: 4 }}></div>
         <AddProfile showProfileForm={showProfileForm} setShowProfileForm={setShowProfileForm} />
-      <Footer year={new Date().getFullYear()}/>
+        <div style={{ borderTop: "2px solid #fff ", marginLeft: 4, marginRight: 4 }}>    
+        </div>
+       
+        <Footer year={new Date().getFullYear()} />
       </div>
     );
+
+    
 }
 
 export default Instructions;

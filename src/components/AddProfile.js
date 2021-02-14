@@ -3,41 +3,41 @@ import StarRating from "./StarRating";
 
 function AddProfile({ showProfileForm, setShowProfileForm }) {
 
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [city, setCity] = useState('');
-  const [phone, setPhone] = useState('');
-  const [image, setImage] = useState('');
+const [name, setName] = useState('');
+const [email, setEmail] = useState('');
+const [city, setCity] = useState('');
+const [phone, setPhone] = useState('');
+const [image, setImage] = useState('');
 
-  function handleProfileSubmit(e) {
+function handleProfileSubmit(e) {
     e.preventDefault()
 
     const data = {
         "profile": {
-            "name": name,
-            "email": email,
-            "phone": phone,
-            "city": city,
-            "image": image
+        "name": name,
+        "email": email,
+        "phone": phone,
+        "city": city,
+        "image": image
         }
     }
 
-    fetch("http://localhost:4000/profiles", {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    })
-      .then(response => response.json())
-      .then(profile => {                    
-          setShowProfileForm(!showProfileForm);
-      })      
-  }
+        fetch("http://localhost:4000/profiles", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(profile => {                    
+            setShowProfileForm(!showProfileForm);
+        })      
+    }
 
-  return (
-      <div>
-      { 
+    return (
+    <div>
+        { 
         showProfileForm ? (
             <div> 
             <h3>Submit Your Profile</h3>
@@ -107,15 +107,15 @@ function AddProfile({ showProfileForm, setShowProfileForm }) {
                 />
             </div>          
  
-          <div className="button-row">            
-              <button onClick={handleProfileSubmit} type="button">Submit Profile</button>              
-          </div>
+    <div className="button-row">            
+        <button onClick={handleProfileSubmit} type="button">Submit Profile</button>              
+        </div>
         </form>
             </div>        
-      ) 
-      : <div> Thank you for submitting your profile. Please visit home page for seeing all the profiles.</div> }
-      </div>
-  );
+    ) 
+    : <div> Thank you for your profile Submission. Visit the Home Page for seeing all the profiles.</div> }
+    </div>
+);
 }
 
 export default AddProfile;
