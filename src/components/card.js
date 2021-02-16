@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Rating from '../components/Rating';
 import StarRating from './StarRating';
 import '../css/App.css'
+import setProfiles from "../actionCreator/setProfiles";
+import { Link } from "react-router-dom";
 
 const Card = (props) => {
   // const avatar = `https://i.pravatar.cc/150?img=${props.avatarId}`;
@@ -9,8 +11,11 @@ const Card = (props) => {
   const [showCardInfo, setShowCardInfo] = useState(false);
   const [currentRating, setCurrentRating] = useState(props.rating);
 
-  // useEffect hook to get the person rating from the backedn api, set teh rsting value in state
+  // useEffect hook to get the person rating from the backedn api, set the rating value in state
   //
+  const handleClick = () => {
+    console.log(props.id)
+  }
 
   const deleteProfile = () => {
     console.log('Deleting Profile!', props.id);
@@ -49,7 +54,8 @@ const Card = (props) => {
                       currentRating={currentRating}
                       setCurrentRating={setCurrentRating}
                     />
-                    <a href="#" class="btn btn-primary">{props.email}{props.phone}</a>
+
+                    <Link className="nav-link" to={`/about/${props.id}`}>View My Profile </Link>      
                     <i onClick={deleteProfile}
                       className="fas fa-trash" 
                       style={{cursor: 'pointer', float:

@@ -9,7 +9,7 @@ function Instructions() {
 
     return (    
       <div className="container">
-      <Navbar title="profile viewer" icon="fab fa-forumbee"/>               
+      <Navbar title="Profile viewer" icon="fab fa-forumbee"/>               
         <div style={{ borderTop: "2px solid #fff ", marginLeft: 4, marginRight: 4 }}></div>
         <AddProfile showProfileForm={showProfileForm} setShowProfileForm={setShowProfileForm} />
         <div style={{ borderTop: "2px solid #fff ", marginLeft: 4, marginRight: 4 }}>    

@@ -8,7 +8,10 @@ const Star = ({ selected = false, onClick = f => f }) => (
 );
 
 const StarRating = ({ totalStars, currentRating, setCurrentRating, profileId }) => {
+  console.log(`currentRating in StarRating: ${currentRating}`);
   const [starsSelected, selectStar] = useState(currentRating);
+  
+  console.log(`starsSelected: ${starsSelected}`);
   
   function updateProfileRating(selectedRating) {
     console.log('calling updateProfileRating', selectedRating);

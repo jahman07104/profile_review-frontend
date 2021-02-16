@@ -1,5 +1,8 @@
 import React, {useState} from "react";
 import StarRating from "./StarRating";
+// import { useHistory } from ' react-router-dom'
+
+
 
 function AddProfile({ showProfileForm, setShowProfileForm }) {
 
@@ -8,9 +11,11 @@ const [email, setEmail] = useState('');
 const [city, setCity] = useState('');
 const [phone, setPhone] = useState('');
 const [image, setImage] = useState('');
+// const history = useHistory();
 
 function handleProfileSubmit(e) {
     e.preventDefault()
+    alert("Your Profile has been uploaded to the Home Page") 
 
     const data = {
         "profile": {
@@ -32,6 +37,8 @@ function handleProfileSubmit(e) {
         .then(response => response.json())
         .then(profile => {                    
             setShowProfileForm(!showProfileForm);
+            // history.push('/')
+
         })      
     }
 
@@ -113,8 +120,13 @@ function handleProfileSubmit(e) {
         </form>
             </div>        
     ) 
-    : <div> Thank you for your profile Submission. Visit the Home Page for seeing all the profiles.</div> }
-    </div>
+  : <div> 
+  
+    Thank you for your profile . Visit the Home Page to view your submission.
+    </div> 
+
+}
+</div>
 );
 }
 

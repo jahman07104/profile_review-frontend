@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import Card from '../components/card'
 import Navbar from './Navbar';
 import StarRating from './StarRating';
+import About from './About';
 import Footer from '../components/Footer';
 import PageNotFound from './PageNotFound'
 import { connect } from "react-redux";
@@ -32,7 +33,7 @@ const Home = ( {profiles, setProfiles} ) => {
 
   return (
   <div className="container">
-    <Navbar title="profile viewer" icon="fab fa-forumbee"/>    
+    <Navbar title="Profile viewer" icon="fab fa-forumbee"/>    
       <div className="row">
         {profileItems}
       </div>
