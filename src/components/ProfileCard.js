@@ -7,7 +7,7 @@ const ProfileCard = (props) => {
   console.log(`props, ${JSON.stringify(props)}`);
   console.log(props.rating);
   return (    
-      <div className="col-md-4">
+      <div className="col-md-4" align-center>
         <div className="card">
           <img className="card-img-top" src={props.avatar} alt="Card image cap" />
             <div>
@@ -17,10 +17,10 @@ const ProfileCard = (props) => {
                 totalStars={5}
                 currentRating={props.rating}                
               />
-              <li>Name: {props.name}</li>
-              <li>City: {props.city}</li>
-              <li>Email: {props.email}</li>
-              <li>Phone: {props.phone}</li>
+              <ol>Name: {props.name}</ol>
+              <ol>City: {props.city}</ol>
+              <ol>Email: {props.email}</ol>
+              <ol>Phone: {props.phone}</ol>
             </div>
           </div>
         </div>
