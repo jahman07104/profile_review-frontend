@@ -8,8 +8,6 @@ class Navbar extends Component {
     icon:'fab fa-forumbee'
   };
 
-
-
   render () {
 
     return ( 

@@ -6,15 +6,12 @@ import About from './About';
 import Footer from '../components/Footer';
 import PageNotFound from './PageNotFound'
 import { connect } from "react-redux";
-import setProfiles from '../actionCreator/setProfiles';
+import { setProfiles, getProfiles } from '../actionCreator/setProfiles';
+import store from '../store';
 
 const Home = ( {profiles, setProfiles} ) => {
   useEffect(() => {
-    fetch("http://localhost:4000/profiles")
-      .then((res) => res.json())
-      .then(profiles => {
-        setProfiles(profiles)
-      })
+    store.dispatch(getProfiles());
   }, []);
 
   const updateProfiles = (deletedProfileId) => {
