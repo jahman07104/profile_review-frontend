@@ -8,8 +8,8 @@ const ProfileCard = (props) => {
   console.log(props.rating);
   return (    
       <div className="col-md-4" align-center>
-        <div className="card">
-          <img className="card-img-top" src={props.avatar} alt="Card image cap" />
+        <div className="card" >
+          <img className="card-img-top" src={props.avatar} alt="Card image cap"/>
             <div>
             <h5 className="card-title">{props.name}</h5>
             <div>              

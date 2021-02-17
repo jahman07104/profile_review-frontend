@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Rating from '../components/Rating';
+// import Rating from '../components/Rating';
 import StarRating from './StarRating';
 import '../css/App.css'
 import setProfiles from "../actionCreator/setProfiles";
@@ -47,7 +47,7 @@ const Card = (props) => {
           {
                 showCardInfo ? (
                   <div>
-                    <p className="card-text">give your rating for this profile.</p>
+                    <p className="card-text">Rate my profile.</p>
                     <StarRating 
                       profileId={props.id}
                       totalStars={5}
@@ -55,7 +55,7 @@ const Card = (props) => {
                       setCurrentRating={setCurrentRating}
                     />
 
-                    <Link className="nav-link" to={`/about/${props.id}`}>View My Profile </Link>      
+                    <Link className="nav-link" to={`/about/${props.id}`}>View my contact info </Link>      
                     <i onClick={deleteProfile}
                       className="fas fa-trash" 
                       style={{cursor: 'pointer', float:

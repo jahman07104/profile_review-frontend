@@ -3,6 +3,7 @@ import './css/App.css';
 import {BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import Home from './components/Home';
 import About from './components/About';
+import AboutThisApp from './components/AboutThisApp';
 import Instructions from './components/Instructions';
 import store from "./store";
 import { Provider } from "react-redux";
@@ -14,7 +15,8 @@ const App = () => {
       <Router>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/about/:id" component={About} />
+          <Route exact path="/about/:id" component={About} />          
+          <Route exact path="/about-this-app" component={AboutThisApp} />
           <Route exact path="/instructions" component={Instructions} />
           <Route component={PageNotFound} />
         </Switch>
