@@ -1,20 +1,13 @@
 import React, { useState } from "react";
-// import Rating from '../components/Rating';
 import StarRating from './StarRating';
 import '../css/App.css'
 import setProfiles from "../actionCreator/setProfiles";
 import { Link } from "react-router-dom";
 
 const Card = (props) => {
-  // const avatar = `https://i.pravatar.cc/150?img=${props.avatarId}`;
-
   const [showCardInfo, setShowCardInfo] = useState(false);
   const [currentRating, setCurrentRating] = useState(props.rating);
-
-  // useEffect hook to get the person rating from the backedn api, set the rating value in state
-  //
   const handleClick = () => {
-    console.log(props.id)
   }
 
   const deleteProfile = () => {
@@ -27,16 +20,15 @@ const Card = (props) => {
     })
       .then(response => response.json())
       .then(profile => {                    
-          console.log(`Deleted profile id ${profile.id} successfully!`);
           props.updateProfiles(profile.id);
-      })    
+      })
   }
 
   return (
     <React.Fragment>
       <div className="col-md-4">
-        <div className="card">
-          <img className="card-img-top" src={props.avatar} alt="Card image cap" />
+        <div className="card">        
+          <img className="card-img-top" src={props.avatar} alt=" " />
             <div className="card-body">
             <h5 className="card-title">{props.name}</h5>
               <i onClick={() => setShowCardInfo(!showCardInfo)}  
@@ -61,7 +53,6 @@ const Card = (props) => {
                       style={{cursor: 'pointer', float:
                       'right', color: 'red' }}
                     />                                             
-
                   </div>
                 )
                 : null

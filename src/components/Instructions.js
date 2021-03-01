@@ -14,12 +14,9 @@ function Instructions() {
         <AddProfile showProfileForm={showProfileForm} setShowProfileForm={setShowProfileForm} />
         <div style={{ borderTop: "2px solid #fff ", marginLeft: 4, marginRight: 4 }}>    
         </div>
-       
-        <Footer year={new Date().getFullYear()} />
+      <Footer year={new Date().getFullYear()} />
       </div>
     );
-
-    
 }
 
 export default Instructions;

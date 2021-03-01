@@ -1,23 +1,15 @@
 import React, { useState } from "react";
-// import { render } from "react-dom";
 import '../css/App.css';
-
 
 const Star = ({ selected = false, onClick = f => f }) => (
   <div className={selected ? "star selected" : "star"} onClick={onClick} />
 );
 
 const StarRating = ({ totalStars, currentRating, setCurrentRating, profileId }) => {
-  console.log(`currentRating in StarRating: ${currentRating}`);
   const [starsSelected, selectStar] = useState(currentRating);
-  
-  console.log(`starsSelected: ${starsSelected}`);
-  
-  function updateProfileRating(selectedRating) {
-    console.log('calling updateProfileRating', selectedRating);
-    
-    const data = { rating: selectedRating, profile_id: profileId }
 
+  function updateProfileRating(selectedRating) {
+  const data = { rating: selectedRating, profile_id: profileId }
     fetch(`http://localhost:4000/profiles/${profileId}`, {
       method: "PUT",
       headers: {

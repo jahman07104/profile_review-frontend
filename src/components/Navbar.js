@@ -1,6 +1,5 @@
 import React,{ Component } from 'react';
 import { Link } from "react-router-dom";
-import AboutThisApp from "./AboutThisApp";
 
 class Navbar extends Component {
   static defaultProps = {
@@ -29,7 +28,6 @@ class Navbar extends Component {
               <li className="nav-item">              
                 <Link className="nav-link" to="/about-this-app">About This App</Link>
               </li>
-             
             </ul>
           </div>
         </div>

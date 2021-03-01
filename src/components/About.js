@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './Navbar'
+import { useParams } from "react-router-dom";
 import Footer from'./Footer'
-import { Link, useParams } from "react-router-dom";
 import ProfileCard from './ProfileCard';
 
 const About = () => {
-  const { id } = useParams();
-  console.log(`id: ${id}`);
+  const { id } = useParams();  
   const [profile, setProfile] = useState({});
 
   const getProfile = () => {
@@ -19,17 +18,15 @@ const About = () => {
 
   useEffect(() => {
     getProfile();
-  }, []);
-
-  console.log(`profile: ${JSON.stringify(profile)}`);
+  });
 
   return ( 
     <>
       <div className="container">
         <Navbar title="Profile viewer" icon="fab fa-forumbee"/>  
           <h1>  About Me </h1>
-        <div class="row">
-          <div class=" col-md-4 col-md-offset-2">
+        <div className="row">
+          <div className=" col-md-4 col-md-offset-.6">
           </div>
           <ProfileCard id={profile.id}
           name={profile.name} 
@@ -42,7 +39,7 @@ const About = () => {
         <br></br>
         <div style={{ borderTop: "2px solid #fff ", marginLeft: 2, marginRight: 2 }}>
         </div>
-        < Footer year={new Date().getFullYear()}/>
+        <Footer year={new Date().getFullYear()}/>
       </div>
     </>
 );

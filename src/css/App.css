@@ -87,11 +87,10 @@ h1 {
   text-align: center;
 }
 
-/* .container {
-Display: flex; 
-Height: 100vh;
-Width: 100vw; 
- Align-Items: center; 
-Justify-Content: centre; 
-  
-} */
+p {
+  font-family: "Times New Roman", Times, serif;
+  font-size:20px ;
+  color: white;
+  flex-basis: 100%;
+  text-align: center;
+}
