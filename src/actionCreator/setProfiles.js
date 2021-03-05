@@ -1,13 +1,14 @@
-export const getProfiles = () => {  
-  return (dispatch) => {    
+export const getProfiles = () => {
+  return (dispatch) => {
     fetch("http://localhost:4000/profiles")
-    .then((res) => res.json())
-    .then(profiles => {      
-      dispatch(setProfiles(profiles));
-    })
-  }
-}
+      .then((res) => res.json())
+      .then((profiles) => {
+        console.log(`API response: ${JSON.stringify(profiles)}`);
+        dispatch(setProfiles(profiles));
+      });
+  };
+};
 
 export const setProfiles = (profiles) => {
   return { type: "SET_PROFILES", payload: profiles };
-}
+};

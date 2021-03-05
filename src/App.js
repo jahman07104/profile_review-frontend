@@ -2,7 +2,7 @@ import React from 'react';
 import './css/App.css';
 import {BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import Home from './components/Home';
-import About from './components/About';
+import Profile from './components/Profile';
 import AboutThisApp from './components/AboutThisApp';
 import Instructions from './components/Instructions';
 import store from "./store";
@@ -15,7 +15,7 @@ const App = () => {
       <Router>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/about/:id" component={About} />          
+          <Route exact path="/profile/:id" component={Profile} />          
           <Route exact path="/about-this-app" component={AboutThisApp} />
           <Route exact path="/instructions" component={Instructions} />
           <Route component={PageNotFound} />

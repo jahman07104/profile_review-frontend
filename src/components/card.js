@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import StarRating from './StarRating';
 import '../css/App.css'
-import setProfiles from "../actionCreator/setProfiles";
-import { Link } from "react-router-dom";
-
+// import setProfiles from "../actionCreator/setProfiles";
+ import { Link } from "react-router-dom";
+// import { connect } from "react-redux";
+// import { setProfiles } from "../actionCreator/setProfiles";
+// import store from "../store";
 const Card = (props) => {
   const [showCardInfo, setShowCardInfo] = useState(false);
   const [currentRating, setCurrentRating] = useState(props.rating);
@@ -47,7 +49,7 @@ const Card = (props) => {
                       setCurrentRating={setCurrentRating}
                     />
 
-                    <Link className="nav-link" to={`/about/${props.id}`}>View my contact info </Link>      
+                    <Link className="nav-link" to={`/profile/${props.id}`}>View my contact info </Link>      
                     <i onClick={deleteProfile}
                       className="fas fa-trash" 
                       style={{cursor: 'pointer', float:
