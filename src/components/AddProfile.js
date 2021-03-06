@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-
 import { addProfile } from "../actionCreator/addProfile";
 import store from "../store";
+import { connect }from 'react-redux'
 
-const AddProfile = ({ showProfileForm, setShowProfileForm }) => {
+const AddProfile = ({ showProfileForm, setShowProfileForm, addProfile }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [city, setCity] = useState("");
@@ -15,9 +15,11 @@ const AddProfile = ({ showProfileForm, setShowProfileForm }) => {
 
   function handleProfileSubmit(e) {
     e.preventDefault();
+  
     alert(
-      "Profile submited Thank you for your profile . You will be directed to the Home Page to view your submission."
+       "Profile submited Thank you for your profile . You will be directed to the Home Page to view your submission."
     );
+
 
     const data = {
       profile: {
@@ -29,18 +31,8 @@ const AddProfile = ({ showProfileForm, setShowProfileForm }) => {
       },
     };
 
-    fetch("http://localhost:4000/profiles", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((response) => response.json())
-      .then((profile) => {
-        store.dispatch(addProfile(profile));
-        history.push("/");
-      });
+   addProfile(data)
+    .then(() => history.push("/")) 
   }
 
   return (
@@ -130,4 +122,9 @@ const AddProfile = ({ showProfileForm, setShowProfileForm }) => {
   );
 };
 
-export default AddProfile;
+const mapDispatchToProps = (dispatch) => ({
+  addProfile: (data) => dispatch(addProfile(data)),
+});
+
+export default connect(null, mapDispatchToProps)(AddProfile);
+

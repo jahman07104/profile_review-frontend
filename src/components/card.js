@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 import StarRating from './StarRating';
 import '../css/App.css'
-// import setProfiles from "../actionCreator/setProfiles";
- import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 // import { connect } from "react-redux";
 // import { setProfiles } from "../actionCreator/setProfiles";
-// import store from "../store";
+import store from "../store";
 const Card = (props) => {
   const [showCardInfo, setShowCardInfo] = useState(false);
   const [currentRating, setCurrentRating] = useState(props.rating);
-  const handleClick = () => {
-  }
+  // const handleClick = () => {
+  // }
 
   const deleteProfile = () => {
     console.log('Deleting Profile!', props.id);
