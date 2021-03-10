@@ -16,7 +16,7 @@ const AddProfile = ({ showProfileForm, setShowProfileForm, addProfile }) => {
     e.preventDefault();
 
     alert(
-      "Profile submited Thank you for your profile . You will be directed to the Home Page to view your submission."
+      "Profile submited Thank you . You will be directed to the Home Page to view your submission."
     );
 
     const data = {

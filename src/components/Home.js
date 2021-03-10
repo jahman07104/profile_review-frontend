@@ -40,6 +40,7 @@ const Home = (props) => {
 };
 const mapStateToProps = (state) => ({
   profiles: state.profiles,
+  
 });
 
 export default connect(mapStateToProps)(Home);

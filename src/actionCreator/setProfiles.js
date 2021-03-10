@@ -3,6 +3,7 @@ export const getProfiles = () => {
     fetch("http://localhost:4000/profiles")
       .then((res) => res.json())
       .then((profiles) => {
+        console.log(profiles)
         dispatch(setProfiles(profiles));
       });
   };
