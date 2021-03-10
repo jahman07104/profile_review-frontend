@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { addProfile } from "../actionCreator/addProfile";
-import store from "../store";
-import { connect }from 'react-redux'
+import { connect } from "react-redux";
 
 const AddProfile = ({ showProfileForm, setShowProfileForm, addProfile }) => {
   const [name, setName] = useState("");
@@ -15,11 +14,10 @@ const AddProfile = ({ showProfileForm, setShowProfileForm, addProfile }) => {
 
   function handleProfileSubmit(e) {
     e.preventDefault();
-  
-    alert(
-       "Profile submited Thank you for your profile . You will be directed to the Home Page to view your submission."
-    );
 
+    alert(
+      "Profile submited Thank you for your profile . You will be directed to the Home Page to view your submission."
+    );
 
     const data = {
       profile: {
@@ -31,8 +29,7 @@ const AddProfile = ({ showProfileForm, setShowProfileForm, addProfile }) => {
       },
     };
 
-   addProfile(data)
-    .then(() => history.push("/")) 
+    addProfile(data).then(() => history.push("/"));
   }
 
   return (
@@ -127,4 +124,3 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(null, mapDispatchToProps)(AddProfile);
-
