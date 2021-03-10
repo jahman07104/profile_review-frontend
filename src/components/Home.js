@@ -3,7 +3,7 @@ import Card from "../components/card";
 import Navbar from "./Navbar";
 import Footer from "../components/Footer";
 import { connect } from "react-redux";
-import { setProfiles, getProfiles } from "../actionCreator/setProfiles";
+import { getProfiles } from "../actionCreator/setProfiles";
 import store from "../store";
 
 const Home = (props) => {
@@ -11,19 +11,9 @@ const Home = (props) => {
     store.dispatch(getProfiles());
   }, []);
 
-  const updateProfiles = (deletedProfileId) => {
-    const updatedProfiles = props.profiles.profiles.filter((profile) => {
-      if (profile.id !== deletedProfileId) {
-        return profile;
-      }
-    });
-    store.dispatch(setProfiles(updatedProfiles));
-  };
-
   const profileItems = props.profiles.profiles.map((profile, index) => {
     return (
       <Card
-        updateProfiles={updateProfiles}
         id={profile.id}
         name={profile.name}
         email={profile.email}
@@ -52,8 +42,4 @@ const mapStateToProps = (state) => ({
   profiles: state.profiles,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  setProfiles: (profiles) => dispatch(setProfiles(profiles)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps)(Home);
