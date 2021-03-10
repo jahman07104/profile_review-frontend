@@ -16,7 +16,7 @@ const Card = (props) => {
     e.preventDefault();
 
     console.log("Deleting Profile!", props.id);
-    alert("Are you sure to delete profile?");
+    alert("Are you sure you want to delete this profile?");
 
     props.deleteProfile(props.id).then(() => history.push("/"));
   }
