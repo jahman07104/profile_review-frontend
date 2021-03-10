@@ -10,26 +10,25 @@ export default function profiles(state = initialState, action) {
     case "ADD_PROFILE":
       return { ...state, profiles: [...state.profiles, action.payload] };
     case "DELETE_PROFILE":
-      const updatedProfiles = state.profiles.filter((profile) => {
-        if (profile.id !== action.payload) {
-          return profile;
-        }
-      });
-      return { ...state, profiles: updatedProfiles };
+      return {
+        ...state,
+        profiles: state.profiles.filter((profile) => {
+          if (profile.id !== action.payload) {
+            return profile;
+          }
+        }),
+      };
     case "UPDATE_PROFILE":
-      const newProfiles = state.profiles.map((profile) => {
-        if (profile.id === action.payload.id) {
-          console.log(
-            "updating profile in redux store",
-            JSON.stringify(action.payload)
-          );
-          return action.payload;
-        } else {
-          return profile;
-        }
-      });
-      console.log("newProfiles", JSON.stringify(newProfiles));
-      return { ...state, profiles: newProfiles };
+      return {
+        ...state,
+        profiles: state.profiles.map((profile) => {
+          if (profile.id === action.payload.id) {
+            return action.payload;
+          } else {
+            return profile;
+          }
+        }),
+      };
     default:
       return state;
   }

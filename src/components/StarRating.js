@@ -1,31 +1,42 @@
 import React, { useState } from "react";
-import '../css/App.css';
+import "../css/App.css";
+import { updateProfile } from "../actionCreator/updateProfile";
+import { connect } from "react-redux";
+import { useHistory } from "react-router-dom";
 
-const Star = ({ selected = false, onClick = f => f }) => (
+const Star = ({ selected = false, onClick = (f) => f }) => (
   <div className={selected ? "star selected" : "star"} onClick={onClick} />
 );
 
-const StarRating = ({ totalStars, currentRating, setCurrentRating, profileId }) => {
+const StarRating = ({
+  totalStars,
+  currentRating,
+  setCurrentRating,
+  profileId,
+  updateProfile,
+  profiles,
+}) => {
   const [starsSelected, selectStar] = useState(currentRating);
+  const history = useHistory();
 
   function updateProfileRating(selectedRating) {
-  const data = { rating: selectedRating, profile_id: profileId }
-    fetch(`http://localhost:4000/profiles/${profileId}`, {
-      method: "PUT",
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    })
-      .then(response => response.json())
-      .then(profile => {
-        selectStar(profile.rating);
-        setCurrentRating(profile.rating);
-      })
+    const data = { rating: selectedRating, profile_id: profileId };
+    updateProfile(data).then(() => {
+      const updatedProfile = profiles.profiles.find((profile) => {
+        if (profile.id === profileId) {
+          return profile;
+        } else {
+          return null;
+        }
+      });
+      history.push("/");
+      selectStar(updatedProfile.rating);
+      setCurrentRating(updatedProfile.rating);
+    });
   }
 
   return (
-    <div className="star-rating">
+    <div className='star-rating'>
       {[...Array(totalStars)].map((n, i) => (
         <Star
           key={i}
@@ -34,10 +45,18 @@ const StarRating = ({ totalStars, currentRating, setCurrentRating, profileId }) 
         />
       ))}
       <p>
-        {starsSelected} of {totalStars} stars        
+        {starsSelected} of {totalStars} stars
       </p>
     </div>
   );
 };
 
-export default StarRating;
+const mapStateToProps = (state) => ({
+  profiles: state.profiles,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  updateProfile: (data) => dispatch(updateProfile(data)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(StarRating);
