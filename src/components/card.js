@@ -14,10 +14,7 @@ const Card = (props) => {
 
   function handleDeleteProfile(e) {
     e.preventDefault();
-
-    console.log("Deleting Profile!", props.id);
     alert("Are you sure you want to delete this profile?");
-
     props.deleteProfile(props.id).then(() => history.push("/"));
   }
 

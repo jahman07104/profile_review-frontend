@@ -7,7 +7,6 @@ import { setProfiles, getProfiles } from "../actionCreator/setProfiles";
 import store from "../store";
 
 const Home = (props) => {
-  console.log(`props.profiles`, JSON.stringify(props.profiles.profiles));
   useEffect(() => {
     store.dispatch(getProfiles());
   }, []);
