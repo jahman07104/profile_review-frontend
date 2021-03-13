@@ -1,6 +1,8 @@
 export const addProfile = (data) => {
-  return (dispatch) =>
-    fetch("http://localhost:4000/profiles", {
+  console.log('b')
+  return (dispatch) => {
+    console.log('c')
+    return fetch("http://localhost:4000/profiles", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -9,6 +11,10 @@ export const addProfile = (data) => {
     })
       .then((response) => response.json())
       .then((profile) => {
+        console.log('d')
         dispatch({ type: "ADD_PROFILE", payload: profile });
       });
+    console.log('e')
+  }
+  console.log('f')
 };

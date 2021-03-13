@@ -28,8 +28,9 @@ const AddProfile = ({ showProfileForm, setShowProfileForm, addProfile }) => {
         image: image,
       },
     };
-
+    console.log('a')
     addProfile(data).then(() => history.push("/"));
+    console.log('g')
   }
 
   return (
