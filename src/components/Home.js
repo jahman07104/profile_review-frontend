@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Card from "../components/card";
 import Navbar from "./Navbar";
 import Footer from "../components/Footer";
@@ -11,7 +11,11 @@ const Home = (props) => {
     store.dispatch(getProfiles());
   }, []);
 
-  const profileItems = props.profiles.profiles.map((profile, index) => {
+  const [name, setName ] = useState("")
+  
+  let profileItems = props.profiles.profiles.filter((profile) => 
+  profile.name.toLowerCase().includes(name)).map((profile, index) => {
+    
     return (
       <Card
         id={profile.id}
@@ -22,14 +26,21 @@ const Home = (props) => {
         avatar={profile.image}
         rating={profile.rating}
         key={index}
+        
       />
     );
   });
-
   return (
+    
     <div className='container'>
       <Navbar title='Profile viewer' icon='fab fa-forumbee' />
-      <div className='row'>{profileItems}</div>
+      <input type="text" onChange={(e) => setName(e.target.value)}
+    
+      />
+      <div className='row'>
+      {profileItems}
+      </div>
+      
       <br></br>
       <div
         style={{ borderTop: "2px solid #fff ", marginLeft: 4, marginRight: 4 }}
